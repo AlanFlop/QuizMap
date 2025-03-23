@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+  <rect id="FR" x="10" y="10" width="40" height="40" fill="#d3d3d3" stroke="#000"/>
+  <text x="30" y="35">FR</text>
+  <rect id="DE" x="60" y="10" width="40" height="40" fill="#d3d3d3" stroke="#000"/>
+  <text x="80" y="35">DE</text>
+  <rect id="ES" x="110" y="10" width="40" height="40" fill="#d3d3d3" stroke="#000"/>
+  <text x="130" y="35">ES</text>
+</svg>

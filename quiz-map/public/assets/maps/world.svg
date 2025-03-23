@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500">
+  <!-- Représentation simplifiée de la carte du monde -->
+  <path id="FR" d="M480,170 L500,180 L485,200 L465,195 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="DE" d="M510,160 L530,165 L535,185 L515,190 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="ES" d="M450,200 L470,210 L465,230 L440,225 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="IT" d="M520,190 L535,195 L530,220 L510,215 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="GB" d="M460,150 L475,155 L470,170 L455,165 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="US" d="M200,180 L300,180 L300,220 L200,220 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="CA" d="M200,120 L300,120 L300,170 L200,170 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="MX" d="M220,230 L280,230 L280,270 L220,270 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="BR" d="M300,300 L350,300 L350,350 L300,350 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="AR" d="M300,360 L340,360 L340,400 L300,400 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="RU" d="M600,100 L800,100 L800,180 L600,180 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="CN" d="M700,200 L780,200 L780,250 L700,250 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="IN" d="M650,230 L690,230 L690,270 L650,270 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="AU" d="M750,350 L820,350 L820,400 L750,400 Z" fill="#d3d3d3" stroke="#000"/>
+  <path id="JP" d="M820,190 L840,190 L840,220 L820,220 Z" fill="#d3d3d3" stroke="#000"/>
+</svg>

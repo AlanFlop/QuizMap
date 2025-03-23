@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de connexion API</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+        }
+        .test-section {
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #388E3C;
+        }
+        .log-container {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            white-space: pre-wrap;
+            color: #333;
+        }
+        .success {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .error {
+            color: #F44336;
+            font-weight: bold;
+        }
+        .warning {
+            color: #FF9800;
+            font-weight: bold;
+        }
+        .info {
+            color: #2196F3;
+        }
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Testeur de connexion API</h1>
+    
+    <div class="card">
+        <h2>Configuration API</h2>
+        <div class="form-group">
+            <label for="api-url">URL de base de l'API:</label>
+            <input type="text" id="api-url" value="http://localhost:3079/api" style="width: 300px;">
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 1: Vérifier que l'API répond</h2>
+        <button onclick="testAPIConnection()">Tester la connexion à l'API</button>
+        <div id="api-connection-log" class="log-container"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Tester la connexion</h2>
+        <div class="form-group">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" value="admin@exemple.com">
+        </div>
+        <div class="form-group">
+            <label for="login-password">Mot de passe:</label>
+            <input type="password" id="login-password" value="admin@123">
+        </div>
+        <button onclick="testLogin()">Tester la connexion</button>
+        <div id="login-log" class="log-container"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Tester l'inscription</h2>
+        <div class="form-group">
+            <label for="register-username">Nom d'utilisateur:</label>
+            <input type="text" id="register-username" value="testuser">
+        </div>
+        <div class="form-group">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" value="test@exemple.com">
+        </div>
+        <div class="form-group">
+            <label for="register-password">Mot de passe:</label>
+            <input type="password" id="register-password" value="Test@123">
+        </div>
+        <button onclick="testRegister()">Tester l'inscription</button>
+        <div id="register-log" class="log-container"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Vérifier les routes</h2>
+        <button onclick="testRoutes()">Vérifier les routes</button>
+        <div id="routes-log" class="log-container"></div>
+    </div>
+
+    <script>
+        // Fonction pour ajouter des messages de log avec style
+        function log(containerId, message, type = 'info') {
+            const container = document.getElementById(containerId);
+            const logEntry = document.createElement('div');
+            logEntry.classList.add(type);
+            logEntry.textContent = message;
+            container.appendChild(logEntry);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        // Fonction pour effacer les logs
+        function clearLog(containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+        }
+
+        // Test 1: Vérifier que l'API répond
+        async function testAPIConnection() {
+            const containerId = 'api-connection-log';
+            clearLog(containerId);
+            
+            const apiUrl = document.getElementById('api-url').value;
+            log(containerId, `🌐 Test d'accès au serveur API: ${apiUrl}`);
+            
+            try {
+                log(containerId, `📡 Tentative de connexion...`);
+                const startTime = Date.now();
+                const response = await fetch(apiUrl);
+                const endTime = Date.now();
+                
+                log(containerId, `✅ Le serveur répond. Status: ${response.status}`, 'success');
+                log(containerId, `⏱️ Temps de réponse: ${endTime - startTime}ms`);
+                
+                try {
+                    const data = await response.json();
+                    log(containerId, `📦 Données reçues: ${JSON.stringify(data)}`);
+                } catch (e) {
+                    log(containerId, `ℹ️ Pas de données JSON dans la réponse.`);
+                }
+            } catch (error) {
+                log(containerId, `❌ Impossible de se connecter au serveur: ${error}`, 'error');
+                log(containerId, `🔧 Vérifiez que votre serveur backend est en cours d'exécution sur le port spécifié.`, 'warning');
+                log(containerId, `🔧 Vérifiez également les règles CORS sur votre serveur.`, 'warning');
+            }
+        }
+
+        // Test 2: Tester la connexion
+        async function testLogin() {
+            const containerId = 'login-log';
+            clearLog(containerId);
+            
+            const apiUrl = document.getElementById('api-url').value;
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            log(containerId, `🔐 Test de connexion avec email: ${email}`);
+            
+            try {
+                log(containerId, `📡 Envoi de la requête de connexion à ${apiUrl}/auth/login`);
+                const response = await fetch(`${apiUrl}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+                
+                log(containerId, `📡 Réponse reçue. Status: ${response.status}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(containerId, `✅ Connexion réussie!`, 'success');
+                    
+                    if (data.token) {
+                        log(containerId, `🔑 Token reçu: ${data.token.substring(0, 15)}...`);
+                    } else {
+                        log(containerId, `⚠️ Le token est absent dans la réponse`, 'warning');
+                    }
+                    
+                    if (data.user) {
+                        log(containerId, `👤 Utilisateur: ${JSON.stringify(data.user)}`);
+                    } else {
+                        log(containerId, `⚠️ Les données utilisateur sont absentes dans la réponse`, 'warning');
+                    }
+                } else {
+                    try {
+                        const errorData = await response.json();
+                        log(containerId, `❌ Échec de la connexion: ${JSON.stringify(errorData)}`, 'error');
+                    } catch (e) {
+                        log(containerId, `❌ Échec de la connexion. Status: ${response.status}`, 'error');
+                    }
+                    log(containerId, `🔧 Vérifiez que vos identifiants sont corrects`, 'warning');
+                    log(containerId, `🔧 Vérifiez la structure de votre API de connexion`, 'warning');
+                }
+            } catch (error) {
+                log(containerId, `❌ Erreur lors du test de connexion: ${error}`, 'error');
+            }
+        }
+
+        // Test 3: Tester l'inscription
+        async function testRegister() {
+            const containerId = 'register-log';
+            clearLog(containerId);
+            
+            const apiUrl = document.getElementById('api-url').value;
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            
+            log(containerId, `📝 Test d'inscription avec username: ${username}, email: ${email}`);
+            
+            try {
+                log(containerId, `📡 Envoi de la requête d'inscription à ${apiUrl}/auth/register`);
+                const response = await fetch(`${apiUrl}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, email, password })
+                });
+                
+                log(containerId, `📡 Réponse reçue. Status: ${response.status}`);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    log(containerId, `✅ Inscription réussie!`, 'success');
+                    log(containerId, `📦 Données reçues: ${JSON.stringify(data)}`);
+                } else {
+                    try {
+                        const errorData = await response.json();
+                        log(containerId, `❌ Échec de l'inscription: ${JSON.stringify(errorData)}`, 'error');
+                    } catch (e) {
+                        log(containerId, `❌ Échec de l'inscription. Status: ${response.status}`, 'error');
+                    }
+                }
+            } catch (error) {
+                log(containerId, `❌ Erreur lors du test d'inscription: ${error}`, 'error');
+            }
+        }
+
+        // Test 4: Vérifier les routes
+        async function testRoutes() {
+            const containerId = 'routes-log';
+            clearLog(containerId);
+            
+            const apiUrl = document.getElementById('api-url').value;
+            
+            log(containerId, `🔍 Vérification des routes API principales`);
+            
+            const routes = [
+                { path: '', method: 'GET', name: 'Racine API' },
+                { path: '/auth/login', method: 'OPTIONS', name: 'Login' },
+                { path: '/auth/register', method: 'OPTIONS', name: 'Register' },
+                { path: '/users/profile', method: 'OPTIONS', name: 'Profil utilisateur' }
+            ];
+            
+            for (const route of routes) {
+                try {
+                    log(containerId, `🔍 Test de ${route.name} (${route.method} ${apiUrl}${route.path})`);
+                    const response = await fetch(`${apiUrl}${route.path}`, { method: route.method });
+                    
+                    if (response.ok || response.status === 204) {
+                        log(containerId, `✅ Route ${route.name} accessible (${response.status})`, 'success');
+                    } else {
+                        log(containerId, `⚠️ Route ${route.name} a répondu avec statut ${response.status}`, 'warning');
+                    }
+                } catch (error) {
+                    log(containerId, `❌ Erreur lors du test de la route ${route.name}: ${error}`, 'error');
+                }
+            }
+            
+            log(containerId, `🔄 Vérification terminée`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+export const countries = [
+  { id: "FR", code: "FR", name: "France", name_fr: "France", continent: "Europe" },
+  { id: "DE", code: "DE", name: "Germany", name_fr: "Allemagne", continent: "Europe" },
+  { id: "ES", code: "ES", name: "Spain", name_fr: "Espagne", continent: "Europe" },
+  { id: "IT", code: "IT", name: "Italy", name_fr: "Italie", continent: "Europe" },
+  { id: "GB", code: "GB", name: "United Kingdom", name_fr: "Royaume-Uni", continent: "Europe" },
+  { id: "US", code: "US", name: "United States", name_fr: "États-Unis", continent: "Amérique du Nord" },
+  { id: "CA", code: "CA", name: "Canada", name_fr: "Canada", continent: "Amérique du Nord" },
+  { id: "MX", code: "MX", name: "Mexico", name_fr: "Mexique", continent: "Amérique du Nord" },
+  { id: "BR", code: "BR", name: "Brazil", name_fr: "Brésil", continent: "Amérique du Sud" },
+  { id: "AR", code: "AR", name: "Argentina", name_fr: "Argentine", continent: "Amérique du Sud" },
+  { id: "JP", code: "JP", name: "Japan", name_fr: "Japon", continent: "Asie" },
+  { id: "CN", code: "CN", name: "China", name_fr: "Chine", continent: "Asie" },
+  { id: "IN", code: "IN", name: "India", name_fr: "Inde", continent: "Asie" },
+  { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe/Asie" },
+  { id: "AU", code: "AU", name: "Australia", name_fr: "Australie", continent: "Océanie" },
+  { id: "ZA", code: "ZA", name: "South Africa", name_fr: "Afrique du Sud", continent: "Afrique" },
+  { id: "EG", code: "EG", name: "Egypt", name_fr: "Égypte", continent: "Afrique" },
+  { id: "NG", code: "NG", name: "Nigeria", name_fr: "Nigeria", continent: "Afrique" }
+];
