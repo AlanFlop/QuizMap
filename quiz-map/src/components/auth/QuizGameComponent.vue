@@ -360,7 +360,7 @@
             { id: "DE", code: "DE", name: "Germany", name_fr: "Allemagne", continent: "Europe", discoverable: true },
             { id: "IT", code: "IT", name: "Italy", name_fr: "Italie", continent: "Europe", discoverable: true },
             { id: "ES", code: "ES", name: "Spain", name_fr: "Espagne", continent: "Europe", discoverable: true },
-            { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe/Asie", discoverable: true },
+            { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe", discoverable: true },
             { id: "US", code: "US", name: "United States", name_fr: "États-Unis", continent: "Amérique du Nord", discoverable: true },
             { id: "CA", code: "CA", name: "Canada", name_fr: "Canada", continent: "Amérique du Nord", discoverable: true },
             { id: "BR", code: "BR", name: "Brazil", name_fr: "Brésil", continent: "Amérique du Sud", discoverable: true },

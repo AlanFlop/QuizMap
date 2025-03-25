@@ -121,8 +121,8 @@ onSvgLoaded() {
     overflow: hidden; /* Important pour éviter les barres de défilement */
     
     .world-map-svg {
-      width: 100%;
-      height: 100%;
+      width: 500%;
+      height: 500%;
       opacity: 0.4; /* Augmenté de 0.2 à 0.4 pour plus de visibilité */
       display: block;
     }

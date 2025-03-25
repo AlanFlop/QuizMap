@@ -293,7 +293,7 @@ const defaultCountries = [
   { id: "QA", code: "QA", name: "Qatar", name_fr: "Qatar", continent: "Asie", discoverable: true },
   { id: "RO", code: "RO", name: "Romania", name_fr: "Roumanie", continent: "Europe", discoverable: true },
   { id: "GB", code: "GB", name: "United Kingdom", name_fr: "Royaume-Uni", continent: "Europe", discoverable: true },
-  { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe/Asie", discoverable: true },
+  { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe", discoverable: true },
   { id: "RW", code: "RW", name: "Rwanda", name_fr: "Rwanda", continent: "Afrique", discoverable: true },
   { id: "KN", code: "KN", name: "Saint Kitts and Nevis", name_fr: "Saint-Christophe", continent: "Amérique du Nord", discoverable: true },
   { id: "SM", code: "SM", name: "San Marino", name_fr: "Saint-Marin", continent: "Europe", discoverable: true },

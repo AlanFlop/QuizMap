@@ -12,7 +12,7 @@ export const countries = [
   { id: "JP", code: "JP", name: "Japan", name_fr: "Japon", continent: "Asie" },
   { id: "CN", code: "CN", name: "China", name_fr: "Chine", continent: "Asie" },
   { id: "IN", code: "IN", name: "India", name_fr: "Inde", continent: "Asie" },
-  { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe/Asie" },
+  { id: "RU", code: "RU", name: "Russia", name_fr: "Russie", continent: "Europe" },
   { id: "AU", code: "AU", name: "Australia", name_fr: "Australie", continent: "Océanie" },
   { id: "ZA", code: "ZA", name: "South Africa", name_fr: "Afrique du Sud", continent: "Afrique" },
   { id: "EG", code: "EG", name: "Egypt", name_fr: "Égypte", continent: "Afrique" },
